@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>日本地震予測マップ</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- 时间窗口选择器 -->
+    <div class="time-selector">
+        <button class="time-btn active" data-window="7">7日間</button>
+        <button class="time-btn" data-window="14">14日間</button>
+        <button class="time-btn" data-window="30">30日間</button>
+    </div>
+    
+    <!-- 地图容器 -->
+    <div id="map"></div>
+    
+    <!-- 底部信息栏 -->
+    <div class="info-bar">
+        <div class="update-time">更新: <span id="updateTime">--</span></div>
+        <div class="max-risk">最高リスク: <span id="maxRisk">--</span></div>
+    </div>
+    
+    <!-- 网格详情弹窗 -->
+    <div id="gridModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">詳細</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="grid-info">
+                    <p><strong>座標範囲:</strong> <span id="coordRange"></span></p>
+                    <p><strong>地域:</strong> <span id="regions"></span></p>
+                    <!-- <p><strong>都道府県:</strong> <span id="prefectures"></span></p> -->
+                    <p><strong>リスクレベル:</strong> <span id="riskLevel" class="risk-badge"></span></p>
+                </div>
+                <div class="probability-details">
+                    <h4>地震発生確率</h4>
+                    <div class="prob-item">
+                        <span class="mag-label">M3.0-4.5:</span>
+                        <div class="prob-bar">
+                            <div class="prob-fill" id="probM3"></div>
+                        </div>
+                        <span class="prob-value" id="probM3Value">--%</span>
+                    </div>
+                    <div class="prob-item">
+                        <span class="mag-label">M4.5-5.5:</span>
+                        <div class="prob-bar">
+                            <div class="prob-fill" id="probM4"></div>
+                        </div>
+                        <span class="prob-value" id="probM4Value">--%</span>
+                    </div>
+                    <div class="prob-item">
+                        <span class="mag-label">M5.5-6.5:</span>
+                        <div class="prob-bar">
+                            <div class="prob-fill" id="probM5"></div>
+                        </div>
+                        <span class="prob-value" id="probM5Value">--%</span>
+                    </div>
+                    <div class="prob-item">
+                        <span class="mag-label">M6.5+:</span>
+                        <div class="prob-bar">
+                            <div class="prob-fill" id="probM6"></div>
+                        </div>
+                        <span class="prob-value" id="probM6Value">--%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 加载指示器 -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+        <p>予測データを読み込んでいます...</p>
+    </div>
+    
+    <!-- JavaScript -->
+     <script src="js/gridConfig.js"></script>
+    <script src="js/mockData.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

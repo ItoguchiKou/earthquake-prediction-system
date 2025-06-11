@@ -1,0 +1,30 @@
+# AWS凭证
+.aws/
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Java
+target/
+*.jar
+*.war
+
+# Node.js
+node_modules/
+build/
+.env.local
+
+# 数据文件
+ml-training/data/
+*.csv
+*.pkl
+*.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp

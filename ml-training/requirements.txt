@@ -1,0 +1,19 @@
+# 核心数据科学库
+pandas==2.0.3
+numpy==1.24.3
+scikit-learn==1.3.0
+
+# AWS相关
+boto3==1.28.17
+sagemaker==2.175.0
+
+# 数据获取和处理
+requests==2.31.0
+
+# 可视化（仅用于开发分析）
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Jupyter（本地开发用）
+jupyter==1.0.0
+notebook==6.5.4
